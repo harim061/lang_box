@@ -19,7 +19,7 @@ jobs:
         run: npx github-lang-box@2
         env:
           GH_USERNAME: harim061
-          GIST_ID: 8335e85451541072dd25fda601129f7d
+          GIST_ID: 13b038613ad5cad56816277bc4360904
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           EXCLUDE: ${{ vars.EXCLUDE }}
           EXCLUDE_REPO: ${{ vars.EXCLUDE_REPO }}
