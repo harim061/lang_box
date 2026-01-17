@@ -3,7 +3,7 @@ name: Update gist with most used programming languages
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 0 * * *" # 매일 자정 UTC
+    - cron: "0 0 * * *"
 
 jobs:
   language-box:
@@ -11,21 +11,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 10
-          run_install: true
-
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: pnpm
 
       - name: Update language gist
-        run: pnpm dlx github-lang-box@2
+        run: npx github-lang-box@2
         env:
-          GH_USERNAME: harim061        # ← 본인 아이디
-          GIST_ID: 9e76b15c0c5cd4826bd4b040a03f3130
+          GH_USERNAME: harim061
+          GIST_ID: 8335e85451541072dd25fda601129f7d
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           EXCLUDE: ${{ vars.EXCLUDE }}
           EXCLUDE_REPO: ${{ vars.EXCLUDE_REPO }}
